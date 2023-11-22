@@ -134,4 +134,13 @@ app.get("/stopnum/", async (req, res) => {
   res.send(dbResponse);
 });
 
+app.get("/setinit/", async (req, res) => {
+  const incrementQuery = `UPDATE stopT SET stopNum = -1;`;
+  await db.run(incrementQuery);
+
+  const getStop = `SELECT stopNum FROM stopT;`;
+  const dbResponse = await db.get(getStop);
+  res.send(dbResponse);
+});
+
 module.exports = app;
