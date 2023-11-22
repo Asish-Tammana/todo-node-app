@@ -114,14 +114,18 @@ app.put("/sup/", async (req, res) => {
   const incrementQuery = `UPDATE stopT SET stopNum = stopNum + 1;`;
   await db.run(incrementQuery);
 
-  res.send("incremented");
+  const getStop = `SELECT stopNum FROM stopT;`;
+  const dbResponse = await db.get(getStop);
+  res.send(dbResponse);
 });
 
-app.put("/sdown/", async (req, res) => {
+app.get("/sdown/", async (req, res) => {
   const incrementQuery = `UPDATE stopT SET stopNum = CASE WHEN stopNum > 0 THEN stopNum - 1 ELSE 0 END;`;
   await db.run(incrementQuery);
 
-  res.send("incremented");
+  const getStop = `SELECT stopNum FROM stopT;`;
+  const dbResponse = await db.get(getStop);
+  res.send(dbResponse);
 });
 
 app.get("/stopnum/", async (req, res) => {
