@@ -41,8 +41,10 @@ GET http://localhost:3004/stopnum/
 
 ###
 
-PUT http://localhost:3004/sup/
+GET http://localhost:3004/sup/
 
 ###
 
-PUT http://localhost:3004/sdown/
+GET http://localhost:3004/sdown/
+
+###

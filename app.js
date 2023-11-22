@@ -110,7 +110,7 @@ app.delete("/todos/:todoId/", async (request, response) => {
   response.send("Todo Deleted");
 });
 
-app.put("/sup/", async (req, res) => {
+app.get("/sup/", async (req, res) => {
   const incrementQuery = `UPDATE stopT SET stopNum = stopNum + 1;`;
   await db.run(incrementQuery);
 
