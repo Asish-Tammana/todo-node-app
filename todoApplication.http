@@ -1,0 +1,48 @@
+GET http://localhost:3004/todos/
+
+###
+GET http://localhost:3004/todos/5/
+
+###
+POST http://localhost:3004/todos/
+Content-Type: application/json
+
+{
+    "todoName": "Painting",
+    "priorityGiven": "LOW",
+    "statusGiven": "TODO"
+}
+
+###
+
+PUT http://localhost:3004/todos/7/
+Content-Type: application/json
+
+{"status": "IN PROGRESS"}
+###
+
+DELETE http://localhost:3004/todos/7/
+
+###
+GET http://localhost:3004/todos/?priority=LOW&status=TO%20DO
+
+###
+GET http://localhost:3004/todos/?status=TO%20DO
+
+###
+GET http://localhost:3004/todos/?priority=HIGH
+
+###
+GET http://localhost:3004/todos/?search_q=Play
+
+###
+
+GET http://localhost:3004/stopnum/
+
+###
+
+PUT http://localhost:3004/sup/
+
+###
+
+PUT http://localhost:3004/sdown/
