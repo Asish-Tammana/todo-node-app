@@ -120,7 +120,7 @@ app.get("/sup/", async (req, res) => {
 });
 
 app.get("/sdown/", async (req, res) => {
-  const incrementQuery = `UPDATE stopT SET stopNum = CASE WHEN stopNum > 0 THEN stopNum - 1 ELSE -1 END;`;
+  const incrementQuery = `UPDATE stopT SET stopNum = CASE WHEN stopNum > 0 THEN stopNum - 1 ELSE 0 END;`;
   await db.run(incrementQuery);
 
   const getStop = `SELECT stopNum FROM stopT;`;
@@ -135,7 +135,7 @@ app.get("/stopnum/", async (req, res) => {
 });
 
 app.get("/setinit/", async (req, res) => {
-  const incrementQuery = `UPDATE stopT SET stopNum = -1;`;
+  const incrementQuery = `UPDATE stopT SET stopNum = 0;`;
   await db.run(incrementQuery);
 
   const getStop = `SELECT stopNum FROM stopT;`;
